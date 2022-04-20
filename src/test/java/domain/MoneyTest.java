@@ -13,6 +13,11 @@ package domain;
  * gradually update working code and refactor
  * */
 
+/*
+* 1. look at the objects side effects
+* 2. now I want to test some variations of the code
+* */
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,8 +29,16 @@ class MoneyTest {
     void testAddGiven5USDAnd10CHFExpect10USD() {
         Money base = new Money(5, "USD");
         Money other = new Money(10, "CHF");
-        double result = base.add(other);
+        double result = base.add(other, 0.5);
         assertEquals(10, result);
+    }
+
+    @Test
+    void testAddGiven10USDand8CHFExpect14USD(){
+        Money base = new Money(10, "USD");
+        Money other = new Money(8, "CHF");
+        double result = base.add(other, 0.5);
+        assertEquals(14, result);
     }
 
     @Test

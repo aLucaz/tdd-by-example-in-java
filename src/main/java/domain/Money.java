@@ -12,8 +12,8 @@ public final class Money {
         this.currency = currency;
     }
 
-    public double add(Money other){
-        return 10;
+    public double add(Money other, double exchange){
+        return value + (other.getValue() * exchange);
     }
 
     public double times(int multiplier){
