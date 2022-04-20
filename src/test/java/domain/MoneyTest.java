@@ -14,9 +14,9 @@ package domain;
  * */
 
 /*
-* 1. look at the objects side effects
-* 2. now I want to test some variations of the code
-* */
+ * 1. look at the objects side effects
+ * 2. now I want to test some variations of the code
+ * */
 
 import org.junit.jupiter.api.Test;
 
@@ -34,7 +34,7 @@ class MoneyTest {
     }
 
     @Test
-    void testAddGiven10USDand8CHFExpect14USD(){
+    void testAddGiven10USDand8CHFExpect14USD() {
         Money base = new Money(10, "USD");
         Money other = new Money(8, "CHF");
         double result = base.add(other, 0.5);
@@ -47,4 +47,12 @@ class MoneyTest {
         double result = base.times(2);
         assertEquals(10, result);
     }
+
+    @Test
+    void testTimesGiven4USD2TimesExpect8USD() {
+        Money base = new Money(4, "USD");
+        double result = base.times(2);
+        assertEquals(8, result);
+    }
+
 }
