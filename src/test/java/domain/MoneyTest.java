@@ -20,6 +20,6 @@ class MoneyTest {
         Money base = new Money(5, "USD");
         Money other = new Money(10, "CHF");
         double result = base.add(other);
-        assertEquals(result, 10);
+        assertEquals(10, result);
     }
 }
