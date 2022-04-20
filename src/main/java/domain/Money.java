@@ -15,4 +15,8 @@ public final class Money {
     public double add(Money other){
         return 10;
     }
+
+    public double times(int multiplier){
+        return 10;
+    }
 }

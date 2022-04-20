@@ -22,4 +22,11 @@ class MoneyTest {
         double result = base.add(other);
         assertEquals(10, result);
     }
+
+    @Test
+    void testMultiplyGiven5USDExpect10USD(){
+        Money base = new Money(5, "USD");
+        double result = base.times(2);
+        assertEquals(10, result);
+    }
 }
