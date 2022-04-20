@@ -17,6 +17,6 @@ public final class Money {
     }
 
     public double times(int multiplier){
-        return 10;
+        return value * multiplier;
     }
 }
