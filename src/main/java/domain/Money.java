@@ -12,11 +12,23 @@ public final class Money {
         this.currency = currency;
     }
 
-    public double add(Money other, double exchange){
+    public double add(Money other, double exchange) {
         return value + (other.getValue() * exchange);
     }
 
-    public double times(int multiplier){
+    public double times(int multiplier) {
         return value * multiplier;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (object == null) {
+            return false;
+        }
+        if (this.getClass() != object.getClass()) {
+            return false;
+        }
+        Money other = (Money) object;
+        return value == other.getValue();
     }
 }

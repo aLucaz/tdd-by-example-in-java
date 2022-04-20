@@ -19,9 +19,16 @@ package domain;
  * I don't want to change the attributes of a class when I do operations add or times
  * */
 
+/*
+ * 1. going deep to the object behavior now we need to compare two Money objects
+ * 2. when a Money object is equal to another?
+ * Money is called a value object
+ * */
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
 class MoneyTest {
@@ -56,4 +63,17 @@ class MoneyTest {
         assertEquals(8, result);
     }
 
+    @Test
+    void testEqualsGiven5USDAnd5USDExpectSuccess() {
+        Money base = new Money(5, "USD");
+        Money other = new Money(5, "USD");
+        assertEquals(base, other);
+    }
+
+    @Test
+    void testEqualsGiven5USDAnd6USDExpectFail() {
+        Money base = new Money(5, "USD");
+        Money other = new Money(6, "USD");
+        assertNotEquals(base, other);
+    }
 }
