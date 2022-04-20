@@ -25,6 +25,12 @@ package domain;
  * Money is called a value object
  * */
 
+/*
+* In chapter 5 kent creates a new class called Franc and because he was working with
+* a Dollar class. In my case I started the development using a Money class because it
+* has more sense to me.
+* */
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
