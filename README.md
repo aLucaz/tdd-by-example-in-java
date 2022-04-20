@@ -10,3 +10,5 @@ java.
 ```"I'm not a great programmer, I'm just a good programmer with great habits"```
 ## Tools
 - JDK 11
+- Maven 3.5
+- JUnit 5
