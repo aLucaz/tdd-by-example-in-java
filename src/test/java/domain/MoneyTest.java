@@ -16,6 +16,7 @@ package domain;
 /*
  * 1. look at the objects side effects
  * 2. now I want to test some variations of the code
+ * I don't want to change the attributes of a class when I do operations add or times
  * */
 
 import org.junit.jupiter.api.Test;
