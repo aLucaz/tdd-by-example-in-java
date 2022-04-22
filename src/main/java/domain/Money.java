@@ -2,6 +2,8 @@ package domain;
 
 import lombok.Getter;
 
+import java.util.Objects;
+
 @Getter
 public final class Money {
     private final double value;
@@ -29,6 +31,6 @@ public final class Money {
             return false;
         }
         Money other = (Money) object;
-        return value == other.getValue();
+        return value == other.getValue() && Objects.equals(currency, other.getCurrency());
     }
 }

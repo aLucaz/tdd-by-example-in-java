@@ -31,6 +31,10 @@ package domain;
 * has more sense to me.
 * */
 
+/*
+* Improving equality comparison between classes: "currency"
+* */
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -80,6 +84,13 @@ class MoneyTest {
     void testEqualsGiven5USDAnd6USDExpectFail() {
         Money base = new Money(5, "USD");
         Money other = new Money(6, "USD");
+        assertNotEquals(base, other);
+    }
+
+    @Test
+    void testEqualsGiven5USDAnd5CHFExpectFail(){
+        Money base = new Money(5, "USD");
+        Money other = new Money(5, "CHF");
         assertNotEquals(base, other);
     }
 }
