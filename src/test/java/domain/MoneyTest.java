@@ -33,6 +33,7 @@ package domain;
 
 /*
 * Improving equality comparison between classes: "currency"
+* In chapter 9 the author improves the code deleting repeated lines and repetitive behavior
 * */
 
 import org.junit.jupiter.api.Test;
