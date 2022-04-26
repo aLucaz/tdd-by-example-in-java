@@ -36,6 +36,7 @@ package domain;
  * In chapter 9 the author improves the code deleting repeated lines and repetitive behavior
  * */
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -43,21 +44,39 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
 class MoneyTest {
+    static Currency dollar;
+    static Currency franc;
+    static CentralBank centralBank;
+    static Pair pDollarFranc;
+    static Pair pFrancDollar;
+
+    @BeforeAll
+    static void init() {
+        dollar = new Currency("USD");
+        franc = new Currency("CHF");
+        centralBank = new CentralBank();
+        pFrancDollar = new Pair(franc, dollar);
+        pDollarFranc = new Pair(dollar, franc);
+        centralBank.add(pFrancDollar, 2.0);
+        centralBank.add(pDollarFranc, 0.5);
+    }
 
     @Test
     void testAddGiven5USDAnd10CHFExpect10USD() {
-        Money base = new Money(5, new Currency("USD"));
-        Money other = new Money(10, new Currency("CHF"));
-        double result = base.add(other, 0.5);
-        assertEquals(10, result);
+        Money base = new Money(5, dollar);
+        Money other = new Money(10, franc);
+        double rate = centralBank.getExchangeRate(pFrancDollar);
+        double result = base.add(other, rate);
+        assertEquals(25, result);
     }
 
     @Test
     void testAddGiven10USDand8CHFExpect14USD() {
         Money base = new Money(10, new Currency("USD"));
         Money other = new Money(8, new Currency("CHF"));
-        double result = base.add(other, 0.5);
-        assertEquals(14, result);
+        double rate = centralBank.getExchangeRate(pFrancDollar);
+        double result = base.add(other, rate);
+        assertEquals(26, result);
     }
 
     @Test
