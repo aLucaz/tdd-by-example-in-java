@@ -7,9 +7,9 @@ import java.util.Objects;
 @Getter
 public final class Money {
     private final double value;
-    private final String currency;
+    private final Currency currency;
 
-    public Money(double value, String currency) {
+    public Money(double value, Currency currency) {
         this.value = value;
         this.currency = currency;
     }
